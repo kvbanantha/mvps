@@ -1,7 +1,7 @@
-package com.lloyds.lloydsiam.service;
+package com.lloyds.iam.service;
 
-import com.lloyds.lloydsiam.domain.Permission;
-import com.lloyds.lloydsiam.domain.repository.PermissionRepository;
+import com.lloyds.iam.domain.Permission;
+import com.lloyds.iam.domain.repository.PermissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.lloyds.goalsobjectives.controller;
 
 import com.lloyds.goalsobjectives.domain.Goal;
 import com.lloyds.goalsobjectives.service.GoalService;
-import com.lloyds.lloydsiam.annotation.Authorized;
+import com.lloyds.iam.annotation.Authorized;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

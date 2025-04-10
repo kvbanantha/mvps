@@ -1,7 +1,7 @@
-package com.lloyds.lloydsiam.service;
+package com.lloyds.iam.service;
 
-import com.lloyds.lloydsiam.domain.Role;
-import com.lloyds.lloydsiam.repository.RoleRepository;
+import com.lloyds.iam.domain.Role;
+import com.lloyds.iam.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

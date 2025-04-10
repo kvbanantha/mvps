@@ -1,4 +1,4 @@
-package com.lloyds.lloydsiam.annotation;
+package com.lloyds.iam.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

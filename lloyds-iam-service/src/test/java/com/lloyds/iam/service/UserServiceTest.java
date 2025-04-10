@@ -1,9 +1,9 @@
-package com.lloyds.lloydsiam.service;
+package com.lloyds.iam.service;
 
 import org.springframework.dao.DataAccessResourceFailureException;
 import jakarta.persistence.EntityNotFoundException;
-import com.lloyds.lloydsiam.domain.User;
-import com.lloyds.lloydsiam.repository.UserRepository;
+import com.lloyds.iam.domain.User;
+import com.lloyds.iam.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,4 +1,4 @@
-package com.lloyds.lloydsiam.exception;
+package com.lloyds.iam.exception;
 
 public enum Permission {
     READ, WRITE, ADMIN

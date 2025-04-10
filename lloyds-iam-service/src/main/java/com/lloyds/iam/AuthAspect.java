@@ -1,4 +1,4 @@
-package com.lloyds.lloydsiam;
+package com.lloyds.iam;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -8,8 +8,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import com.lloyds.lloydsiam.annotation.Authorized;
-import com.lloyds.lloydsiam.exception.UnauthorizedException;
+import com.lloyds.iam.annotation.Authorized;
+import com.lloyds.iam.exception.UnauthorizedException;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Component
 public class AuthAspect {
 
-    @Around("@annotation(com.lloyds.lloydsiam.annotation.Authorized)")
+    @Around("@annotation(com.lloyds.iam.annotation.Authorized)")
     public Object checkPermission(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();

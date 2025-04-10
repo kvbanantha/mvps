@@ -1,10 +1,10 @@
-package com.lloyds.lloydsiam.controller;
+package com.lloyds.iam.controller;
 
-import com.lloyds.lloydsiam.annotation.Authorized;
-import com.lloyds.lloydsiam.domain.Role;
-import com.lloyds.lloydsiam.domain.User;
-import com.lloyds.lloydsiam.service.RoleService;
-import com.lloyds.lloydsiam.service.UserService;
+import com.lloyds.iam.annotation.Authorized;
+import com.lloyds.iam.domain.Role;
+import com.lloyds.iam.domain.User;
+import com.lloyds.iam.service.RoleService;
+import com.lloyds.iam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import jakarta.persistence.EntityNotFoundException;

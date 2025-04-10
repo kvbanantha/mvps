@@ -1,4 +1,4 @@
-package com.lloyds.lloydsiam.domain;
+package com.lloyds.iam.domain;
 
 import java.util.Set;
 

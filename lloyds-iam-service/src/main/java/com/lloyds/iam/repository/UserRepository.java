@@ -1,10 +1,8 @@
-package com.lloyds.lloydsiam.repository;
+package com.lloyds.iam.repository;
 
-import com.lloyds.lloydsiam.domain.User;
-import org.springframework.dao.DataAccessResourceFailureException;
+import com.lloyds.iam.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

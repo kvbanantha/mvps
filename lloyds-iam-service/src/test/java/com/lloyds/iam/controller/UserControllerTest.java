@@ -1,15 +1,15 @@
-package com.lloyds.lloydsiam.controller;
+package com.lloyds.iam.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
-import com.lloyds.lloydsiam.LloydsIamServiceApplication;
-import com.lloyds.lloydsiam.service.RoleService;
-import com.lloyds.lloydsiam.service.UserService;
-import com.lloyds.lloydsiam.domain.Role;
-import com.lloyds.lloydsiam.domain.User;
+import com.lloyds.iam.LloydsIamServiceApplication;
+import com.lloyds.iam.service.RoleService;
+import com.lloyds.iam.service.UserService;
+import com.lloyds.iam.domain.Role;
+import com.lloyds.iam.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

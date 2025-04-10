@@ -1,6 +1,6 @@
-package com.lloyds.lloydsiam.domain.repository;
+package com.lloyds.iam.domain.repository;
 
-import com.lloyds.lloydsiam.domain.Permission;
+import com.lloyds.iam.domain.Permission;
 import java.util.List;
 import java.util.Optional;
 
