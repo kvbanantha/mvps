@@ -17,7 +17,19 @@ public class ObjectiveService {
         this.objectiveRepository = objectiveRepository;
     }
 
-    public List<Objective> listObjectives(Long goalId, Long userId) {
+    public List<Objective> listObjectives() {
         return objectiveRepository.findAll();
+    }
+
+    public Objective createObjective(Objective objective) {
+        return objectiveRepository.save(objective);
+    }
+
+    public Objective updateObjective(Objective objective) {
+        return objectiveRepository.save(objective);
+    }
+
+    public Objective getObjective(long l) {
+        return objectiveRepository.findById(l).orElse(null);
     }
 }

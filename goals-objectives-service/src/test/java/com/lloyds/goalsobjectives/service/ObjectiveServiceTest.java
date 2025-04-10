@@ -1,7 +1,7 @@
 package com.lloyds.goalsobjectives.service;
 
 import com.lloyds.goalsobjectives.domain.Objective;
-import com.lloyds.goalsobjectives.domain.repository.ObjectiveRepository;
+import com.lloyds.goalsobjectives.repository.ObjectiveRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -22,7 +22,7 @@ class ObjectiveServiceTest {
     private ObjectiveRepository objectiveRepository;
 
     @InjectMocks
-    private ObjectiveServiceImpl objectiveService;
+    private ObjectiveService objectiveService;
 
     @BeforeEach
     void setUp() {
@@ -43,7 +43,7 @@ class ObjectiveServiceTest {
         Objective objective = new Objective();
         when(objectiveRepository.findById(any())).thenReturn(Optional.of(objective));
         when(objectiveRepository.save(any(Objective.class))).thenReturn(objective);
-        Objective updated = objectiveService.updateObjective(1L,objective);
+        Objective updated = objectiveService.updateObjective(objective);
         assertNotNull(updated);
         verify(objectiveRepository, times(1)).save(any(Objective.class));
     }
