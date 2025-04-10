@@ -42,7 +42,7 @@ public class ObjectivesController {
     @Authorized(role = {"User", "Admin"})
     @GetMapping
     public ResponseEntity<List<Objective>> listObjectives(@RequestParam(required = false) Long goalId, @RequestParam(required = false) Long userId) {
-        List<Objective> objectives = objectiveService.listObjectives(goalId, userId);
+        List<Objective> objectives = objectiveService.listObjectives();
         return ResponseEntity.ok(objectives);
     }
 }

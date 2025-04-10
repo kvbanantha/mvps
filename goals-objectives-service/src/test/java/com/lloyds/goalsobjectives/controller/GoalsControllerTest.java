@@ -44,20 +44,20 @@ class GoalsControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{}"))
                 .andExpect(status().isOk());
-        verify(goalService, times(1)).updateGoal(eq(1L), any());
+        verify(goalService, times(1)).updateGoal(any());
     }
 
     @Test
     void testListGoals() throws Exception {
         mockMvc.perform(get("/goals"))
                 .andExpect(status().isOk());
-        verify(goalService, times(1)).listGoals();
+        verify(goalService, times(1)).listAllGoals();
     }
 
     @Test
     void testGetGoal() throws Exception {
         mockMvc.perform(get("/goals/1"))
                 .andExpect(status().isOk());
-        verify(goalService, times(1)).getGoal(1L);
+        verify(goalService, times(1)).getGoalById(1L);
     }
 }
