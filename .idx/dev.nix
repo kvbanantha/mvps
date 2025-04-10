@@ -9,7 +9,13 @@
     pkgs.maven
   ];
   # Sets environment variables in the workspace
-  env = {};
+  env = {
+        # GitHub user details
+        GIT_AUTHOR_NAME = "kvbanantha";
+        GIT_AUTHOR_EMAIL = "ananthibm@yahoo.com";
+        GIT_COMMITTER_NAME = "kvbanantha";
+        GIT_COMMITTER_EMAIL = "ananthibm@yahoo.com";
+    };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
