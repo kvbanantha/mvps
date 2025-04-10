@@ -7,6 +7,8 @@ import com.lloyds.lloydsiam.service.RoleService;
 import com.lloyds.lloydsiam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import jakarta.persistence.EntityNotFoundException;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +24,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+
     private RoleService roleService;
 
     @PostMapping("/users")
@@ -33,15 +36,16 @@ public class UserController {
 
     @PutMapping("/users/{id}")
     @Permission(role = "SuperAdmin")
-    public ResponseEntity<Long> updateUser(@RequestBody User user) {        
-        Long updatedUserId = userService.updateUser(user).getId();
+    public ResponseEntity<Long> updateUser(@RequestBody User user) throws EntityNotFoundException {
+        User updatedUser = userService.updateUser(user);       
+        Long updatedUserId = updatedUser.getId();
         return new ResponseEntity<>(updatedUserId, HttpStatus.OK);
     }
 
     @GetMapping("/users/{id}")
     @Permission(role = "SuperAdmin")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
-        User user = userService.getUser(id);
+        User user = userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -100,7 +104,20 @@ public class UserController {
     
     @PostMapping("/addAdmin")
     @Permission(role = "SuperAdmin")
-    public ResponseEntity<String> addAdminToEndpoint(@RequestParam String endpoint, @RequestParam String role) {
-       return new ResponseEntity<>("Admin added successfully to the endpoint", HttpStatus.OK);
+    public ResponseEntity<String> addAdminToEndpoint(@RequestParam(required = false) String endpoint, @RequestParam(required = false) String role) {
+       if (endpoint == null || role == null) {
+            return new ResponseEntity<>("Both 'endpoint' and 'role' parameters are required.", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>("Admin added successfully to the endpoint", HttpStatus.OK);
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<String> handleEntityNotFoundException(EntityNotFoundException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 }

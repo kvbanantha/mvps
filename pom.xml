@@ -5,10 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lloyds</groupId>
-    <artifactId>lloyds-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>goals-objectives</artifactId>
+    <version>1.0</version>
     <packaging>pom</packaging>
-
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/>
+    </parent>
     <modules>
         <module>lloyds-iam-service</module>
         <module>goals-objectives-service</module>
