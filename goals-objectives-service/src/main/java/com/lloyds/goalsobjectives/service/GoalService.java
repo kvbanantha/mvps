@@ -17,6 +17,7 @@ public class GoalService {
     public GoalService(GoalRepository goalRepository) {
         this.goalRepository = goalRepository;
     }
+
     public List<Goal> listAllGoals() {
         return goalRepository.findAll();
     }
@@ -31,5 +32,17 @@ public class GoalService {
         return goalRepository.findAll().stream()
                 .filter(goal -> categories.contains(goal.getCategory()))
                 .toList();
+    }
+
+    public Goal createGoal(Goal goal) {
+        return goalRepository.save(goal);
+    }
+
+    public Goal updateGoal(Goal goal) {
+        return goalRepository.save(goal);
+    }
+
+    public void deleteGoal(long id) {
+        goalRepository.deleteById(id);
     }
 }

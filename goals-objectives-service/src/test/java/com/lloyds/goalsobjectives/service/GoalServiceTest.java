@@ -1,7 +1,7 @@
 package com.lloyds.goalsobjectives.service;
 
 import com.lloyds.goalsobjectives.domain.Goal;
-import com.lloyds.goalsobjectives.domain.repository.GoalRepository;
+import com.lloyds.goalsobjectives.repository.GoalRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -22,7 +22,7 @@ class GoalServiceTest {
     private GoalRepository goalRepository;
 
     @InjectMocks
-    private GoalServiceImpl goalService;
+    private GoalService goalService;
 
     @BeforeEach
     void setUp() {
@@ -72,7 +72,7 @@ class GoalServiceTest {
 
         when(goalRepository.findAll()).thenReturn(goals);
 
-        List<Goal> result = goalService.listGoals();
+        List<Goal> result = goalService.listAllGoals();
 
         assertEquals(2, result.size());
         verify(goalRepository, times(1)).findAll();
@@ -85,10 +85,10 @@ class GoalServiceTest {
 
         when(goalRepository.findById(1L)).thenReturn(Optional.of(goal));
 
-        Optional<Goal> result = goalService.getGoalById(1L);
+        Goal result = goalService.getGoalById(1L);
 
-        assertTrue(result.isPresent());
-        assertEquals(1L, result.get().getId());
+        assertTrue(result != null);
+        assertEquals(1L, result.getId());
         verify(goalRepository, times(1)).findById(1L);
     }
 
